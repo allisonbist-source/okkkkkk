@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Dearest Pari</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: 'Georgia', serif;
+            padding: 20px;
+        }
+
+        .card {
+            background: white;
+            width: 100%;
+            max-width: 600px;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .card-header {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            padding: 40px 30px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hearts {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+        }
+
+        .heart {
+            position: absolute;
+            font-size: 20px;
+            animation: float 6s infinite ease-in-out;
+            opacity: 0.6;
+        }
+
+        .heart:nth-child(1) { left: 10%; animation-delay: 0s; }
+        .heart:nth-child(2) { left: 30%; animation-delay: 1s; }
+        .heart:nth-child(3) { left: 50%; animation-delay: 2s; }
+        .heart:nth-child(4) { left: 70%; animation-delay: 3s; }
+        .heart:nth-child(5) { left: 90%; animation-delay: 4s; }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-20px) rotate(10deg);
+            }
+        }
+
+        .card-header h1 {
+            color: white;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            position: relative;
+            z-index: 1;
+        }
+
+        .card-header p {
+            color: rgba(255, 255, 255, 0.95);
+            font-size: 1.2em;
+            font-style: italic;
+            position: relative;
+            z-index: 1;
+        }
+
+        .card-body {
+            padding: 40px 30px;
+            line-height: 1.8;
+            color: #333;
+        }
+
+        .salutation {
+            font-size: 1.3em;
+            color: #f5576c;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .letter-content p {
+            margin-bottom: 20px;
+            font-size: 1.1em;
+            text-align: justify;
+        }
+
+        .signature {
+            text-align: right;
+            margin-top: 30px;
+            font-size: 1.2em;
+            color: #667eea;
+            font-style: italic;
+        }
+
+        .decorative-line {
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(to right, #f093fb, #f5576c);
+            margin: 20px auto;
+            border-radius: 2px;
+        }
+
+        .footer {
+            background: #fafafa;
+            padding: 20px;
+            text-align: center;
+            border-top: 2px solid #f093fb;
+        }
+
+        .footer-hearts {
+            font-size: 1.5em;
+            color: #f5576c;
+            letter-spacing: 10px;
+        }
+
+        @media (max-width: 600px) {
+            .card-header h1 {
+                font-size: 2em;
+            }
+            .card-body {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="card-header">
+            <div class="hearts">
+                <div class="heart">💖</div>
+                <div class="heart">💝</div>
+                <div class="heart">💗</div>
+                <div class="heart">💕</div>
+                <div class="heart">💓</div>
+            </div>
+            <h1>To My Dearest Pari</h1>
+            <p>A Love Letter from the Heart</p>
+        </div>
+
+        <div class="card-body">
+            <div class="salutation">My Beautiful Pranisha,</div>
+            
+            <div class="letter-content">
+                <p>
+                    Every moment with you feels like a dream I never want to wake up from. You light up my world in ways I never thought possible, and each day with you is a new adventure filled with love, laughter, and endless joy.
+                </p>
+
+                <p>
+                    Your smile is the sunshine that brightens even my darkest days. Your voice is the melody that plays in my heart. The way you care, the way you laugh, the way you simply exist – everything about you makes me fall deeper in love with you.
+                </p>
+
+                <p>
+                    I want you to know that you're not just my girlfriend – you're my best friend, my confidant, my everything. You make me want to be a better person every single day. With you by my side, I feel like I can conquer the world.
+                </p>
+
+                <p>
+                    Thank you for being you. Thank you for choosing me. Thank you for filling my life with so much love and happiness. I promise to cherish you, support you, and love you with all my heart, today and always.
+                </p>
+
+                <div class="decorative-line"></div>
+
+                <div class="signature">
+                    Forever yours,<br>
+                    With all my love ❤️
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <div class="footer-hearts">💕 💖 💕 💖 💕</div>
+        </div>
+    </div>
+</body>
+</html>
