@@ -2,64 +2,56 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>For Prasamsa 💕</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;600&display=swap');
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Poppins', sans-serif; background: linear-gradient(45deg, #ff9a9e 0%, #fecfef 50%, #ffecd2 100%); background-attachment: fixed; padding: 15px 10px; min-height: 100vh; }
-        .card { background: #fff; width: 100%; max-width: 450px; margin: 0 auto; border-radius: 20px; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15); overflow: hidden; position: relative; z-index: 1; }
-        .header { background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045); padding: 15px; text-align: center; }
-        .header h2 { color: #fff; font-family: 'Pacifico', cursive; font-size: 1.3em; }
-        .content { padding: 20px; text-align: center; }
-        .message { font-size: 0.95em; line-height: 1.6; color: #555; margin-bottom: 15px; text-align: left; }
-        .love-button { display: block; width: 100%; padding: 12px; font-family: 'Pacifico', cursive; background: linear-gradient(135deg, #ff6b9d, #ff4757); color: #fff; border: none; border-radius: 50px; cursor: pointer; font-size: 1.1em; }
-        .signature { text-align: right; font-family: 'Pacifico', cursive; color: #ff6b9d; margin-top: 15px; }
-        
-        /* Balloon Animation */
-        .heart-balloon { position: fixed; font-size: 60px; z-index: 9999; pointer-events: none; animation: flyUp 5s ease-out forwards; }
-        .balloon-text { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 14px; color: #fff; font-weight: bold; background: rgba(255, 0, 0, 0.4); padding: 4px; border-radius: 5px; }
-        @keyframes flyUp { 0% { transform: translateY(0) scale(0); opacity: 0; } 10% { opacity: 1; transform: translateY(-50px) scale(1); } 100% { transform: translateY(-120vh) scale(1.2); opacity: 0; } }
+        @import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;600&display=swap');
+        body { font-family: 'Poppins', sans-serif; background: linear-gradient(45deg, #ff9a9e, #fecfef); height: 100vh; display: flex; align-items: center; justify-content: center; margin: 0; overflow: hidden; }
+        .card { background: white; padding: 30px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); text-align: center; width: 320px; z-index: 10; }
+        h1 { font-family: 'Pacifico', cursive; color: #ff4757; }
+        .love-button { background: #ff4757; color: white; border: none; padding: 15px 25px; border-radius: 50px; font-family: 'Pacifico', cursive; font-size: 1.2rem; cursor: pointer; transition: 0.3s; width: 100%; }
+        .love-button:active { transform: scale(0.9); }
+        .heart { position: fixed; font-size: 30px; animation: fly 5s linear forwards; }
+        @keyframes fly { 0% { transform: translateY(100vh) rotate(0deg); opacity: 1; } 100% { transform: translateY(-100px) rotate(360deg); opacity: 0; } }
     </style>
 </head>
 <body>
 
-    <audio id="mySong">
+    <audio id="myAudio" loop>
         <source src="audio.mp3" type="audio/mpeg">
     </audio>
 
     <div class="card">
-        <div class="header"><h2>From Instagram to My Heart 💕</h2></div>
-        <div class="content">
-            <div style="font-family: 'Pacifico'; color: #ff6b9d; font-size: 1.3em;">Hey Prasamsa! 💖</div>
-            <div class="message">
-                I'm so glad I slid into your DMs! 😊 You're amazing inside and out. ✨
-            </div>
-            
-            <button class="love-button" onclick="playMusic(); createHeartBalloons()">I Love You 💕</button>
-            
-            <div class="signature">Rian 💖</div>
-        </div>
+        <h1>Hey Prasamsa! 💖</h1>
+        <p>You make my day brighter. Click the button below!</p>
+        <button class="love-button" onclick="toggleMusic()">I Love You 💕</button>
     </div>
 
     <script>
-        function playMusic() {
-            var audio = document.getElementById("mySong");
-            audio.play();
+        const audio = document.getElementById('myAudio');
+        
+        function toggleMusic() {
+            // Toggle Logic
+            if (audio.paused) {
+                audio.play().catch(error => console.log("Playback blocked: ", error));
+            } else {
+                audio.pause();
+            }
+            
+            // Balloon Logic
+            for (let i = 0; i < 10; i++) {
+                createHeart();
+            }
         }
 
-        function createHeartBalloons() {
-            for (let i = 0; i < 8; i++) {
-                setTimeout(() => {
-                    const balloon = document.createElement('div');
-                    balloon.className = 'heart-balloon';
-                    balloon.style.left = (20 + Math.random() * (window.innerWidth - 80)) + 'px';
-                    balloon.style.bottom = '0px';
-                    balloon.innerHTML = '❤️<div class="balloon-text">Love u Prasamsa</div>';
-                    document.body.appendChild(balloon);
-                    setTimeout(() => balloon.remove(), 5000);
-                }, i * 200);
-            }
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.className = 'heart';
+            heart.innerHTML = '❤️';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = (Math.random() * 3 + 2) + 's';
+            document.body.appendChild(heart);
+            setTimeout(() => heart.remove(), 5000);
         }
     </script>
 </body>
